@@ -1,0 +1,17 @@
+@mixin mw {
+  max-width: var(--max-w);
+}
+
+@mixin mw-l {
+  max-width: var(--max-w-l);
+}
+
+@mixin mh {
+  margin: 0 auto;
+}
+
+@mixin img-fill {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

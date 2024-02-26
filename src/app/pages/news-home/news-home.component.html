@@ -1,0 +1,44 @@
+<section
+  class="w-full h-[60vh] max-h-[600px] border-b-[1px] border-b-[#ffffff15] mb-[5rem] flex flex-col items-center justify-center"
+>
+  <h1 class="dracula-text text-center">Breaking News Portal</h1>
+  <p class="mt-10 text-white/60 text-[.8rem] uppercase">
+    The only portal where you can find verified, up-to-date information.
+  </p>
+</section>
+<section class="mb-10">
+  <h3 class="small mb-8">Récents posts</h3>
+  <div
+    *ngIf="!dataIsLoaded"
+    class="mt-4 flex lfex-col items-center justify-center"
+  >
+    <p>Les données ne sont pas encore disponible pour l'instant.</p>
+    <p>Veuillez bien patienter.</p>
+  </div>
+
+  <div *ngIf="dataIsLoaded" class="m-0 p-0 w-full">
+    <div
+      class="float-left card-w mr-[2rem] mb-[4rem] rounded-[.1rem] border-[1px] border-[#ffffff17] cursor-pointer"
+      (click)="navigateToDetails(new)"
+      *ngFor="let new of news"
+    >
+      <img
+        [src]="new.urlToImage | placeholderImage"
+        alt="Post Picture"
+        class="w-full h-[300px] object-cover mb-[1rem]"
+      />
+      <div class="p-6">
+        <p class="mt-[1rem] first:mt-0 font-MontSemiBold text-[1rem]">Source</p>
+        <div class="text-[.94rem] text-white/70 leading-[1.2rem] mt-[.25rem]">{{ new | sourceName }}</div>
+        <p class="mt-[1rem] first:mt-0 font-MontSemiBold text-[1rem]">Author</p>
+        <div class="text-[.94rem] text-white/70 leading-[1.2rem] mt-[.25rem]">{{ new.author | nonDefined }}</div>
+        <p class="mt-[1rem] first:mt-0 font-MontSemiBold text-[1rem]">Title</p>
+        <div class="text-[.94rem] text-white/70 leading-[1.2rem] mt-[.25rem]">{{ new.title | truncate : [30, "..."] }}</div>
+        <p class="mt-[1rem] first:mt-0 font-MontSemiBold text-[1rem]">Description</p>
+        <div class="text-[.94rem] text-white/70 leading-[1.2rem] mt-[.25rem]">{{ new.description | truncate : [30, "..."] }}</div>
+        <p class="mt-[1rem] first:mt-0 font-MontSemiBold text-[1rem]">Date</p>
+        <div class="text-[.94rem] text-white/70 leading-[1.2rem] mt-[.25rem]">{{ new.publishedAt | date : "dd/MM/YYYY" }}</div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,11 @@
+.card-w {
+  width: clamp(200px, 33%, 400px);
+
+  @media only screen and (max-width: 810px) {
+    width: 40vw;
+  }
+
+  @media only screen and (max-width: 650px) {
+    width: 90vw;
+  }
+}

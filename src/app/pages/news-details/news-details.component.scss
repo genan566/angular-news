@@ -1,0 +1,13 @@
+.magic_shadow {
+  &::after {
+    position: absolute;
+    top: 2rem;
+    left: 5rem;
+    width: 1px;
+    height: 1px;
+    content: "";
+    background-color: transparent !important;
+    z-index: -1;
+    box-shadow: 12rem 12rem 20rem 15rem rgba(255, 255, 255, 0.329);
+  }
+}

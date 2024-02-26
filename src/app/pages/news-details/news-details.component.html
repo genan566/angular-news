@@ -1,0 +1,40 @@
+<button
+  (click)="goBack()"
+  class="bg-white text-black rounded-md py-1 mb-16 mt-8 transition-all active:scale-90 px-2 text-sm"
+>
+  Retour
+</button>
+
+<section
+  class="flex gap-[5rem] items-start w-full relative justify-center transition-all max-[1080px]:flex-wrap"
+>
+  <figure
+    class="sticky magic_shadow top-[5rem] w-[600px] h-[500px] transition-all max-[1080px]:w-full max-[1080px]:max-w-[800px] max-[1080px]:relative max-[1080px]:top-[none] max-[1080px]:mb-[5rem]"
+  >
+    <img
+      [src]="currentNews?.urlToImage | placeholderImage"
+      alt="Posts Picture"
+      class="w-full h-full object-cover rounded-[1rem]"
+    />
+  </figure>
+  <div
+    class="w-1/2 border-[1px] border-[#ffffff13] p-[2rem] transition-all bg-[#161110c4] rounded-[1rem] max-[1080px]:w-full"
+  >
+    <h3 class="first:mt-0 text-[1.15rem] mt-[2rem] mb-[.5rem] font-MontSemiBold">Source of Post</h3>
+    <div class="text-[.94rem] text-white/75 leading-[2rem] border-t-[1px] border-[#ffffff13] pt-[1rem]">{{ currentNews | sourceName }}</div>
+    <h3 class="first:mt-0 text-[1.15rem] mt-[2rem] mb-[.5rem] font-MontSemiBold">Title</h3>
+    <div class="text-[.94rem] text-white/75 leading-[2rem] border-t-[1px] border-[#ffffff13] pt-[1rem]">{{ currentNews?.title | nonDefined }}</div>
+    <h3 class="first:mt-0 text-[1.15rem] mt-[2rem] mb-[.5rem] font-MontSemiBold">Description</h3>
+    <div class="text-[.94rem] text-white/75 leading-[2rem] border-t-[1px] border-[#ffffff13] pt-[1rem]">{{ currentNews?.description | nonDefined }}</div>
+    <h3 class="first:mt-0 text-[1.15rem] mt-[2rem] mb-[.5rem] font-MontSemiBold">Content</h3>
+    <div class="text-[.94rem] text-white/75 leading-[2rem] border-t-[1px] border-[#ffffff13] pt-[1rem]">{{ currentNews?.content | nonDefined }}</div>
+    <h3 class="first:mt-0 text-[1.15rem] mt-[2rem] mb-[.5rem] font-MontSemiBold">Date de publication</h3>
+    <div class="text-[.94rem] text-white/75 leading-[2rem] border-t-[1px] border-[#ffffff13] pt-[1rem]">{{ currentNews?.publishedAt | date : "dd/MM/YYYY" | nonDefined }}</div>
+    <h3 class="first:mt-0 text-[1.15rem] mt-[2rem] mb-[.5rem] font-MontSemiBold">Auteur</h3>
+    <div class="text-[.94rem] text-white/75 leading-[2rem] border-t-[1px] border-[#ffffff13] pt-[1rem]">{{ currentNews?.author | nonDefined }}</div>
+    <h3 class="first:mt-0 text-[1.15rem] mt-[2rem] mb-[.5rem] font-MontSemiBold">URL</h3>
+    <div class="text-[.94rem] text-white/75 leading-[2rem] border-t-[1px] border-[#ffffff13] pt-[1rem]">
+      <a [href]="currentNews?.url" class="underline text-blue-400" target="_blank">Cliquez ici</a>
+    </div>
+  </div>
+</section>
