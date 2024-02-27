@@ -18,16 +18,16 @@
 
   <div *ngIf="dataIsLoaded" class="m-0 p-0 w-full">
     <div
-      class="float-left card-w mr-[2rem] flex min-w-[600px] items-center h-[300px] mb-[4rem] rounded-[.1rem] border-[1px] border-[#ffffff17] cursor-pointer"
+      class="float-left max-[500px]:block max-[500px]:float-none card-w max-[500px]:mr-0 max-[500px]:h-auto max-[500px]:min-w-full mr-[2rem] flex min-w-[600px] max-[500px]:flex-wrap items-center h-[300px] mb-[4rem] rounded-[.1rem] border-[1px] border-[#ffffff17] cursor-pointer"
       (click)="navigateToDetails(new)"
       *ngFor="let new of news"
     >
       <img
         [src]="new.urlToImage | placeholderImage"
         alt="Post Picture"
-        class="w-[300px] h-full bg-slate-900 object-cover"
+        class="w-[300px] max-[500px]:w-full max-[500px]:h-[200px] h-full bg-slate-900 object-cover"
       />
-      <div class="p-6">
+      <div class="p-6 max-[500px]:w-full">
         <p class="mt-[1rem] first:mt-0 font-MontSemiBold text-[1rem]">Title</p>
         <div class="text-[.94rem] text-white/70 leading-[1.2rem] mt-[.25rem]">
           {{ new.title | truncate : [25, "..."] }}
@@ -37,7 +37,7 @@
         >
           Description
         </p>
-        <div class="text-[.94rem] text-white/70 leading-[1.2rem] mt-[1rem]">
+        <div class="text-[.94rem] text-white/70 leading-[1.2rem] mt-[.25rem]">
           {{ new.description | truncate : [50, "..."] }}
         </div>
         <!-- <p class="mt-[1rem] first:mt-0 font-MontSemiBold text-[1rem]">Source</p> -->
@@ -46,7 +46,7 @@
         </div>
         <!-- <p class="mt-[1rem] first:mt-0 font-MontSemiBold text-[1rem]">Author</p> -->
         <div class="text-[.94rem] text-white/70 leading-[1.2rem] mt-[1rem]">
-          {{ new.author | nonDefined }}
+          {{ new.author | nonDefined | truncate : [25, "..."] }}
         </div>
         <!-- <p class="mt-[1rem] first:mt-0 font-MontSemiBold text-[1rem]">Date</p> -->
         <div
